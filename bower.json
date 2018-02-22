@@ -17,7 +17,13 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
   },
   "resolutions": {
-    "polymer": "^2.0.0"
+    "polymer": "^2.0.0",
+    "iron-flex-layout": "^2.0.0",
+    "iron-iconset-svg": "^2.0.0",
+    "iron-media-query": "^2.0.0",
+    "iron-selector": "^2.0.0",
+    "paper-icon-button": "^2.0.0",
+    "webcomponentsjs": "^v1.0.19"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0"
