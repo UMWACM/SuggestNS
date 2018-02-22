@@ -24,6 +24,7 @@ selling_prefixes = []
 service_prefixes = []
 cultural_data = {}
 
+
 def get_locations(location):
     return []
 
@@ -31,16 +32,25 @@ def get_locations(location):
 def get_synonyms(customizer):
     return []
 
+
 def get(website_json):
     website_info = json.loads(website_json)
     location = str(website_info['location']['lat']) + ',' + str(website_info['location']['long'])
     locations = get_locations(location)
     synonyms = get_synonyms(website_info['customizer'])
     prefixes = []
+
     if website_info['modifier'] == 'buying':
         prefixes = buying_prefixes
     elif website_info['modifier'] == 'selling':
         prefixes = selling_prefixes
     else:
         prefixes = service_prefixes
-        
+
+    suggestions = {}
+
+    for i in range(0, 50):
+        # create suggestion using wordlists
+        suggestions[str(i)] = ""
+
+    return json.dumps(suggestions)
