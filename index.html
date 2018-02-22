@@ -44,9 +44,8 @@
                 <div style="font-family: 'Dancing Script', cursive;">SuggestNS</div>
             </h1>
             <p class="lead center">A <font face="Dancing Script" size="6">fancy</font> domain suggestion service.</p>
-        </div>
-        <nav class="justify-content-center navbar navbar-light bg-light">
-            <form>
+            <hr>
+            <nav class="justify-content-center navbar navbar-light">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Profession
@@ -59,10 +58,7 @@
                     </div>
                 </div>
                 &nbsp;
-                <div class="form-group">
-                    <label for="keywordInput"></label>
-                    <input type="text" class="form-control" id="keywordInput" aria-describedby="keywordIn" placeholder="Enter a Keyword">
-                </div>
+                <input type="text" id="keywordInput" aria-describedby="keywordIn" placeholder="Enter a Keyword">
                 &nbsp;
                 &nbsp;
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#locModal">
@@ -73,8 +69,8 @@
                 <button type="button" class="btn btn-primary">
                     Generate
                 </button>
-            </form>
-        </nav>
+            </nav>
+        </div>
         <script>
          function getLocation() {
              if (navigator.geolocation) {
