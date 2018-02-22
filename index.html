@@ -16,9 +16,16 @@
         <script src="js/bootstrap.bundle.min.js"></script>
 
         <!-- Map stuffs -->
-        <script src="js/jquery-gmaps-latlon-picker.js"></script>
-        <link rel="stylesheet" href="css/jquery-gmaps-latlon-picker.css">
-        <script src="js/maps.min.js"></script>
+        <style>
+        #mapPicker {
+           height: 20em;
+           width: 29em;
+           align: center;
+
+        }
+        </style>
+
+
 
         <script>
          $(document).ready(function () {
@@ -80,9 +87,13 @@
              }
          }
          function showPosition(position){
+            map.center={lat: position.coords.latitude, lng: position.coords.longitude};
+            marker.position = {lat: position.coords.latitude, lng: position.coords.longitude};
              console.log("Latitude: " + position.coords.latitude +
                          "<br>Longitude: " + position.coords.longitude);
          }
+
+
          // function Get(yourUrl){
          //     var Httpreq = new XMLHttpRequest(); // a new request
          //    Httpreq.open("GET",yourUrl,false);
@@ -103,14 +114,36 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <fieldset class="gllpLatlonPicker">
-                            <input type="text" class="gllpSearchField">
-                            <input type="button" class="gllpSearchButton" value="search">
-	                          <div class="gllpMap">Google Maps</div>
-	                          <input type="hidden" class="gllpLatitude" value="20"/>
-	                          <input type="hidden" class="gllpLongitude" value="20"/>
-	                          <input type="hidden" class="gllpZoom" value="3"/>
-                        </fieldset>
+                      <div id="mapPicker" style="position: relative; overflow: hidden;"></div>
+                        <script>
+                          function initMap() {
+                            console.log("Map Loaded");
+                            // Create a map object and specify the DOM element for display.
+                            var map = new google.maps.Map(document.getElementById('mapPicker'), {
+                              center: {lat: 59.327, lng: 18.067},
+                              zoom: 8
+                            });
+                            marker = new google.maps.Marker({
+                              map: map,
+                              draggable: true,
+                              animation: google.maps.Animation.DROP,
+                              position: {lat: 59.327, lng: 18.067}
+                            });
+                            marker.addListener('click', toggleBounce);
+
+                            console.log(map);
+                          }
+                          function toggleBounce() {
+                            if (marker.getAnimation() !== null) {
+                              marker.setAnimation(null);
+                            } else {
+                              marker.setAnimation(google.maps.Animation.BOUNCE);
+                            }
+                          }
+
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSme4sDrjlBLwyjGT0qq_JJkcK879tAU&callback=initMap"
+                    async defer></script>
                     </div>
                     <div class="modal-footer">
                         <div class="container-fluid">
