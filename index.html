@@ -5,6 +5,7 @@
 
         <!-- Font stuffs -->
         <link rel="stylesheet" href="css/dancing_script.css">
+        <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
 
         <!-- Animation stuffs -->
         <link rel="stylesheet" href="css/rotator.css">
@@ -89,7 +90,7 @@
          var map;
          var marker;
 
-         
+
          function showPosition(position){
             map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
             marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitude});
@@ -142,6 +143,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                      <nav class="justify-content-center navbar navbar-light">
+                        <input type="text" id="keywordInput" aria-describedby="keywordIn" placeholder="Enter a Keyword">
+                        &nbsp;
+                        <button type="button" class="btn btn-secondary">
+                            <div class="fa fa-search"></div>
+                        </button>
+                      </nav>
                       <div id="mapPicker" style="position: relative; overflow: hidden;"></div>
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSme4sDrjlBLwyjGT0qq_JJkcK879tAU&callback=initMap"
                     async defer></script>
