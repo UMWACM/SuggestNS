@@ -8,13 +8,13 @@
       "paper-elements": "PolymerElements/paper-elements#^1.0.7",
       "s-table": "StartPolymer/s-table#^0.2.2",
       "polymer": "Polymer/polymer#^2.0.0",
-      "webcomponentsjs": "webcomponents/webcomponentsjs#^2.0.0"
+      "webcomponentsjs": "webcomponents/webcomponentsjs#^1.1.0"
   },
   "resolutions": {
       "polymer": "^2.0.0",
       "paper-elements": "^1.0.7",
       "s-table": "^0.2.2",
-      "webcomponentsjs": "^2.0.0"
+      "webcomponentsjs": "^1.1.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0"
