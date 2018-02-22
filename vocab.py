@@ -1,5 +1,10 @@
-from vocabulary.vocabulary import Vocabulary as vb
-import json
+from PyDictionary import PyDictionary
+
+dictionary = PyDictionary()
+
+
 def get_synonyms(word):
-    synonyms = json.loads(vb.synonym(word))
-    return [d['text'] for d in synonyms]
+    return dictionary.synonym(word)
+
+
+print(get_synonyms('fishing'))
