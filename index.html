@@ -93,6 +93,30 @@
                          "<br>Longitude: " + position.coords.longitude);
          }
 
+         function initMap() {
+           console.log("Map Loaded");
+           // Create a map object and specify the DOM element for display.
+           var map = new google.maps.Map(document.getElementById('mapPicker'), {
+             center: {lat: 59.327, lng: 18.067},
+             zoom: 8
+           });
+           var marker = new google.maps.Marker({
+             map: map,
+             draggable: true,
+             animation: google.maps.Animation.DROP,
+             position: {lat: 59.327, lng: 18.067}
+           });
+           marker.addListener('click', toggleBounce);
+
+           console.log(map);
+         }
+         function toggleBounce() {
+           if (marker.getAnimation() !== null) {
+             marker.setAnimation(null);
+           } else {
+             marker.setAnimation(google.maps.Animation.BOUNCE);
+           }
+         }
 
          // function Get(yourUrl){
          //     var Httpreq = new XMLHttpRequest(); // a new request
@@ -115,33 +139,6 @@
                     </div>
                     <div class="modal-body">
                       <div id="mapPicker" style="position: relative; overflow: hidden;"></div>
-                        <script>
-                          function initMap() {
-                            console.log("Map Loaded");
-                            // Create a map object and specify the DOM element for display.
-                            var map = new google.maps.Map(document.getElementById('mapPicker'), {
-                              center: {lat: 59.327, lng: 18.067},
-                              zoom: 8
-                            });
-                            marker = new google.maps.Marker({
-                              map: map,
-                              draggable: true,
-                              animation: google.maps.Animation.DROP,
-                              position: {lat: 59.327, lng: 18.067}
-                            });
-                            marker.addListener('click', toggleBounce);
-
-                            console.log(map);
-                          }
-                          function toggleBounce() {
-                            if (marker.getAnimation() !== null) {
-                              marker.setAnimation(null);
-                            } else {
-                              marker.setAnimation(google.maps.Animation.BOUNCE);
-                            }
-                          }
-
-                        </script>
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSme4sDrjlBLwyjGT0qq_JJkcK879tAU&callback=initMap"
                     async defer></script>
                     </div>
