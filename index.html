@@ -2,21 +2,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Animation stuffs -->
         <link rel="stylesheet" href="css/rotator.css">
         <link rel="stylesheet" href="css/animate.css">
+
         <!-- Bootstrap stuffs -->
         <script src="js/jquery.min.js"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/bootstrap.bundle.min.js"></script>
+
         <!-- Map stuffs -->
-        <script src="js/locationpicker.jquery.min.js"></script>
-        <script src="js/maps.min.js"></script>
+        <script src="js/jquery-gmaps-latlon-picker.js"></script>
+        <link rel="stylesheet" href="css/jquery-gmaps-latlon-picker.css">
+        <!-- <script src="js/maps.min.js"></script> -->
+        <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
 
         <script>
-            $(document).ready(function () {
-                $('.dropdown-toggle').dropdown();
-            });
+         $(document).ready(function () {
+             $('.dropdown-toggle').dropdown();
+         });
         </script>
 
         <title>SuggestNS</title>
@@ -38,44 +43,44 @@
             </h1>
         </div>
         <nav class="justify-content-center navbar navbar-light bg-light">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profession
-                    </button>
-                    &nbsp;
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Buyer</a>
-                        <a class="dropdown-item" href="#">Seller</a>
-                        <a class="dropdown-item" href="#">Other</a>
-                    </div>
-                </div>
-                &nbsp;
-                <input class=""></input>
-                &nbsp;
-                &nbsp;
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
-                    <image class="svg" width="24" height="24" alt="location" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTE1MiA2NDBxMC0xMDYtNzUtMTgxdC0xODEtNzUtMTgxIDc1LTc1IDE4MSA3NSAxODEgMTgxIDc1IDE4MS03NSA3NS0xODF6bTI1NiAwcTAgMTA5LTMzIDE3OWwtMzY0IDc3NHEtMTYgMzMtNDcuNSA1MnQtNjcuNSAxOS02Ny41LTE5LTQ2LjUtNTJsLTM2NS03NzRxLTMzLTcwLTMzLTE3OSAwLTIxMiAxNTAtMzYydDM2Mi0xNTAgMzYyIDE1MCAxNTAgMzYyeiIvPjwvc3ZnPg=="></image>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Profession
                 </button>
                 &nbsp;
-                &nbsp;
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        TLD
-                    </button>
-                    &nbsp;
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                        <a class="dropdown-item" href="#">.autos</a>
-                        <a class="dropdown-item" href="#">.boats</a>
-                        <a class="dropdown-item" href="#">.homes</a>
-                        <a class="dropdown-item" href="#">.motorcycles</a>
-                        <a class="dropdown-item" href="#">.yachts</a>
-                    </div>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Buyer</a>
+                    <a class="dropdown-item" href="#">Seller</a>
+                    <a class="dropdown-item" href="#">Other</a>
                 </div>
-                &nbsp;
-                <button type="button" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-play"></span>
-                    Generate
+            </div>
+            &nbsp;
+            <input class=""></input>
+            &nbsp;
+            &nbsp;
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
+                <image class="svg" width="24" height="24" alt="location" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTE1MiA2NDBxMC0xMDYtNzUtMTgxdC0xODEtNzUtMTgxIDc1LTc1IDE4MSA3NSAxODEgMTgxIDc1IDE4MS03NSA3NS0xODF6bTI1NiAwcTAgMTA5LTMzIDE3OWwtMzY0IDc3NHEtMTYgMzMtNDcuNSA1MnQtNjcuNSAxOS02Ny41LTE5LTQ2LjUtNTJsLTM2NS03NzRxLTMzLTcwLTMzLTE3OSAwLTIxMiAxNTAtMzYydDM2Mi0xNTAgMzYyIDE1MCAxNTAgMzYyeiIvPjwvc3ZnPg=="></image>
+            </button>
+            &nbsp;
+            &nbsp;
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    TLD
                 </button>
+                &nbsp;
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    <a class="dropdown-item" href="#">.autos</a>
+                    <a class="dropdown-item" href="#">.boats</a>
+                    <a class="dropdown-item" href="#">.homes</a>
+                    <a class="dropdown-item" href="#">.motorcycles</a>
+                    <a class="dropdown-item" href="#">.yachts</a>
+                </div>
+            </div>
+            &nbsp;
+            <button type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-play"></span>
+                Generate
+            </button>
         </nav>
         <script>
          function getLocation() {
@@ -89,12 +94,12 @@
              console.log("Latitude: " + position.coords.latitude +
                          "<br>Longitude: " + position.coords.longitude);
          }
-        // function Get(yourUrl){
-        //     var Httpreq = new XMLHttpRequest(); // a new request
-        //    Httpreq.open("GET",yourUrl,false);
-        //     Httpreq.send(null);
-        //     return Httpreq.responseText;
-        // }
+         // function Get(yourUrl){
+         //     var Httpreq = new XMLHttpRequest(); // a new request
+         //    Httpreq.open("GET",yourUrl,false);
+         //     Httpreq.send(null);
+         //     return Httpreq.responseText;
+         // }
          //var json_obj = JSON.parse(Get(yourUrl));
          //console.log("this is the author name: "+json_obj.author_name);*/
         </script>
@@ -109,7 +114,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="map" style="width: 500px; height: 400px;"></div>
+                        <fieldset class="gllpLatlonPicker">
+                            <input type="text" class="gllpSearchField">
+                            <input type="button" class="gllpSearchButton" value="search">
+	                          <div class="gllpMap">Google Maps</div>
+	                          <input type="hidden" class="gllpLatitude" value="20"/>
+	                          <input type="hidden" class="gllpLongitude" value="20"/>
+	                          <input type="hidden" class="gllpZoom" value="3"/>
+                        </fieldset>
                     </div>
                     <div class="modal-footer">
                         <div class="container-fluid">
