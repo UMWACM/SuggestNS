@@ -50,7 +50,7 @@
                 <input class=""></input>
                 &nbsp;
                 &nbsp;
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locModal">
                     <image class="svg" width="24" height="24" alt="location" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTE1MiA2NDBxMC0xMDYtNzUtMTgxdC0xODEtNzUtMTgxIDc1LTc1IDE4MSA3NSAxODEgMTgxIDc1IDE4MS03NSA3NS0xODF6bTI1NiAwcTAgMTA5LTMzIDE3OWwtMzY0IDc3NHEtMTYgMzMtNDcuNSA1MnQtNjcuNSAxOS02Ny41LTE5LTQ2LjUtNTJsLTM2NS03NzRxLTMzLTcwLTMzLTE3OSAwLTIxMiAxNTAtMzYydDM2Mi0xNTAgMzYyIDE1MCAxNTAgMzYyeiIvPjwvc3ZnPg=="></image>
                 </button>
                 &nbsp;
@@ -96,20 +96,22 @@
          //console.log("this is the author name: "+json_obj.author_name);*/
         </script>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="locModal" tabindex="-1" role="dialog" aria-labelledby="LocationModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">Location</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
+                        <button type="button" class="btn btn-primary" onclick="getLocation()">
+                            Get Location Automatically
+                        </button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Ok</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
