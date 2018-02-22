@@ -19,9 +19,13 @@
         <title>SuggestNS</title>
 
         <style>
-            .center {
-               text-align: center;
-            }
+         .center {
+             text-align: center;
+         }
+         .svg {
+             -webkit-filter: invert(100%);
+             filter: invert(100%);
+         }
         </style>
     </head>
     <body>
@@ -46,7 +50,9 @@
                 <input class=""></input>
                 &nbsp;
                 &nbsp;
-                <button type="button" class="btn btn-primary">&#9873;</button>
+                <button onclick="getLocation()" type="button" class="btn btn-primary">
+                    <image class="svg" width="24" height="24" alt="location" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB3aWR0aD0iMTc5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTE1MiA2NDBxMC0xMDYtNzUtMTgxdC0xODEtNzUtMTgxIDc1LTc1IDE4MSA3NSAxODEgMTgxIDc1IDE4MS03NSA3NS0xODF6bTI1NiAwcTAgMTA5LTMzIDE3OWwtMzY0IDc3NHEtMTYgMzMtNDcuNSA1MnQtNjcuNSAxOS02Ny41LTE5LTQ2LjUtNTJsLTM2NS03NzRxLTMzLTcwLTMzLTE3OSAwLTIxMiAxNTAtMzYydDM2Mi0xNTAgMzYyIDE1MCAxNTAgMzYyeiIvPjwvc3ZnPg=="></image>
+                </button>
                 &nbsp;
                 &nbsp;
                 <div class="dropdown">
@@ -68,5 +74,18 @@
                     Generate
                 </button>
         </nav>
+        <script>
+         function getLocation() {
+             if (navigator.geolocation) {
+                 navigator.geolocation.getCurrentPosition(showPosition);
+             } else {
+                 console.log("no Geo");
+             }
+        }
+        function showPosition(position){
+            console.log("Latitude: " + position.coords.latitude +
+                   "<br>Longitude: " + position.coords.longitude);
+        }
+        </script> 
     </body>
 </html>
