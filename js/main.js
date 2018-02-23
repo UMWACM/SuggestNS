@@ -13,8 +13,6 @@ var loc;
 
 function saveLoc(){
     loc = marker.getPosition();
-    console.log("Latitude: " + loc.lat() +
-                "Longitude: " + loc.lng());
 }
 
 function emptyLoc(){
@@ -27,7 +25,6 @@ marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitud
 }
 
  function initMap() {
-   console.log("Map Loaded");
    // Create a map object and specify the DOM element for display.
    map = new google.maps.Map(document.getElementById('mapPicker'), {
      center: {lat: 59.327, lng: 18.067},
