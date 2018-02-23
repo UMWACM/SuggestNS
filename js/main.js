@@ -105,13 +105,25 @@ function GenerateTable(){
     var table_str = '<table class="table table-striped"><thead><tr><th>URL</th><th>Availability</th></tr></thead><tbody>';
     for (var key_o in originals) {
         if (originals.hasOwnProperty(key_o)) {
-            table_str = table_str + '<tr>' + '<th scope="row">' + key_o + '</th><td>' + originals[key_o] + '</td></tr>';
+            var insert;
+            if (originals[key_o]) {
+                insert = '&#x2714;';
+            } else {
+                insert = '&#x274C;';
+            }
+            table_str = table_str + '<tr>' + '<th scope="row">' + key_o + '</th><td>' + insert + '</td></tr>';
         }
     }
     table_str = table_str + '<tr><th scope="row"><hr></th><td><hr></td></tr>';
     for (var key_s in suggestions) {
         if (suggestions.hasOwnProperty(key_s)) {
-            table_str = table_str + '<tr>' + '<th scope="row">' + key_s + '</th><td>' + suggestions[key_s] + '</td></tr>';
+            var insert;
+            if (originals[key_s]) {
+                insert = '&#x2714;';
+            } else {
+                insert = '&#x274C;';
+            }
+            table_str = table_str + '<tr>' + '<th scope="row">' + key_s + '</th><td>' + insert + '</td></tr>';
         }
     }
     table_str = table_str + '</tbody></table>';
