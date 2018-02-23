@@ -19,7 +19,7 @@ with open('data/ReservedList.csv', 'r') as cs:
 registered = []
 with open('data/20180222-zone-data.txt', 'r') as f:
     for line in f:
-        registered.append(line.split(None, 1)[0])
+        registered.append(line.split(None, 1)[0][:-1])
 
 # buying_prefixes = []
 # selling_prefixes = []
