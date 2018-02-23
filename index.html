@@ -26,7 +26,40 @@
         }
         </style>
 
+        <!-- Spinner -->
+        <style>
+            .spinner {
+                width: 40px;
+                height: 40px;
+                margin: 100px auto;
+                background-color: #333;
 
+                border-radius: 100%;  
+                -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+                animation: sk-scaleout 1.0s infinite ease-in-out;
+            }
+
+            @-webkit-keyframes sk-scaleout {
+                0% {
+                    -webkit-transform: scale(0)
+                }
+                    100% {
+                        -webkit-transform: scale(1.0);
+                        opacity: 0;
+                    }
+            }
+
+            @keyframes sk-scaleout {
+                0% { 
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                } 100% {
+                -webkit-transform: scale(1.0);
+                transform: scale(1.0);
+                opacity: 0;
+                }
+            }
+        </style>
 
         <script>
          $(document).ready(function () {
@@ -74,7 +107,7 @@
                 </button>
                 &nbsp;
                 &nbsp;
-                <button type="button" class="btn btn-primary">
+                <button id="generate" onclick="submit()" type="button" class="btn btn-primary">
                     Generate
                 </button>
             </nav>
@@ -102,60 +135,6 @@
               </div>
             </nav>
         </div>
-        <script>
-         function getLocation() {
-             if (navigator.geolocation) {
-                 navigator.geolocation.getCurrentPosition(showPosition);
-             } else {
-                 console.log("no Geo");
-             }
-         }
-         var map;
-         var marker;
-
-
-         function showPosition(position){
-            map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
-            marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitude});
-             console.log("Latitude: " + position.coords.latitude +
-                         "<br>Longitude: " + position.coords.longitude);
-         }
-
-         function initMap() {
-           console.log("Map Loaded");
-           // Create a map object and specify the DOM element for display.
-           map = new google.maps.Map(document.getElementById('mapPicker'), {
-             center: {lat: 59.327, lng: 18.067},
-             zoom: 8
-           });
-           marker = new google.maps.Marker({
-             map: map,
-             draggable: true,
-             animation: google.maps.Animation.DROP,
-             position: {lat: 59.327, lng: 18.067}
-           });
-           marker.addListener('click', toggleBounce);
-
-           console.log(map);
-         }
-         function toggleBounce() {
-           if (marker.getAnimation() !== null) {
-             marker.setAnimation(null);
-           } else {
-             marker.setAnimation(google.maps.Animation.BOUNCE);
-           }
-         }
-
-         // function Get(yourUrl){
-         //     var Httpreq = new XMLHttpRequest(); // a new request
-         //    Httpreq.open("GET",yourUrl,false);
-         //     Httpreq.send(null);
-         //     return Httpreq.responseText;
-         // }
-         //var json_obj = JSON.parse(Get(yourUrl));
-         //console.log("this is the author name: "+json_obj.author_name);*/
-        </script>
-
         <div class="modal fade" id="locModal" tabindex="-1" role="dialog" aria-labelledby="LocationModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -174,8 +153,7 @@
                         </button>
                       </nav>
                       <div id="mapPicker" style="position: relative; overflow: hidden;"></div>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSme4sDrjlBLwyjGT0qq_JJkcK879tAU&callback=initMap"
-                    async defer></script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSme4sDrjlBLwyjGT0qq_JJkcK879tAU&callback=initMap" async defer></script>
                     </div>
                     <div class="modal-footer">
                         <div class="container-fluid">
@@ -193,5 +171,37 @@
                 </div>
             </div>
         </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Main JavaScript Code -->
+        <script src="js/main.js"></script>
     </body>
 </html>
