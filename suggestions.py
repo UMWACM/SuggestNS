@@ -66,7 +66,8 @@ def get(customizer, tlds, location=0):
     if location != 0:
         locations = get_locations(location)
     customizer = customizer.lower()
-    tlds = get_tlds(tlds)
+    if type(tlds) is str:
+        tlds = get_tlds(tlds)
     part_of_speech = list(dictionary.meaning(customizer).keys())[0]
     synonyms = dictionary.synonym(customizer)
     adjectives = get_adjectives(customizer)
