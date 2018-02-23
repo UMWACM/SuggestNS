@@ -167,6 +167,6 @@ def alexa_suggest(iteration):
         return urls['originals']
     else:
         if iteration < len(urls['suggestions']):
-            return {urls['suggestions'].keys()[iteration]: urls['suggestions'].items()[iteration]}
+            return {urls['suggestions'].keys()[iteration]: urls['suggestions'].values()[iteration]}
         else:
             return 0
