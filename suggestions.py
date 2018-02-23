@@ -58,12 +58,16 @@ def get_adjectives(word):
     return adjectives
 
 
+urls = {}
+
+
 def get(customizer, tlds, location=0):
     locations = []
     if location != 0:
         locations = get_locations(location)
     customizer = customizer.lower()
-    tlds = get_tlds(tlds)
+    if type(tlds) is str:
+        tlds = get_tlds(tlds)
     part_of_speech = list(dictionary.meaning(customizer).keys())[0]
     synonyms = dictionary.synonym(customizer)
     adjectives = get_adjectives(customizer)
@@ -142,11 +146,27 @@ def get(customizer, tlds, location=0):
     for i in range(min(3, len(synonyms))):
         for j in range(min(3, len(suffixes))):
             for tld in tlds:
-                domain = (suffixes[j] + synonyms[i] + tld).lower()
+                domain = (synonyms[i] + suffixes[j] + tld).lower()
                 if domain in registered or domain in reserved:
                     suggestions[domain] = False
                 else:
                     suggestions[domain] = True
 
+    global urls
     urls = {'originals': originals, 'suggestions': suggestions}
     return urls
+
+
+def alexa_init(keyword, tld, location=0):
+    global urls
+    urls = get(keyword, list(tld), location)
+
+
+def alexa_suggest(iteration):
+    if iteration == 0:
+        return urls['originals']
+    else:
+        if iteration < len(urls['suggestions']):
+            return {urls['suggestions'].keys()[iteration]: urls['suggestions'].values()[iteration]}
+        else:
+            return 0
