@@ -71,14 +71,32 @@ var json_obj;
 function Request(){
     if(loc == false) {
         console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds());
-        json_obj = JSON.parse(Get("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds()));
+        json_obj = JSON.parse(Get("https://6bc3715d-42d4-4bc1-808f-46cd8374317e.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds()));
     } else {
         console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}");
-        json_obj = JSON.parse(Get("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+        json_obj = JSON.parse(Get("https://6bc3715d-42d4-4bc1-808f-46cd8374317e.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
     }
+    GenerateTable();
 }
 
 function CompileTlds() {
     return "{autos:" + document.getElementById("inlineCheckbox1").checked + ",boats:" +  document.getElementById("inlineCheckbox2").checked + ",homes:" +  document.getElementById("inlineCheckbox3").checked + ",motorcycles:" +  document.getElementById("inlineCheckbox4").checked + ",yachts:" +  document.getElementById("inlineCheckbox5").checked + "}";
 }
 
+function GenerateTable(){
+    var table_str = '<table class="table table-striped"><thead><tr><th>URL</th><th>Availability</th></tr></thead><tbody>';
+    for (var key_o in json_obj.originals) {
+        if (json_obj.originals.hasOwnProperty(key_o)) {
+            table_str = table_str + '<tr>' + '<th scope="row">' + key_o + '</th><td>' + json_obj.originals[key_o] + '</td></tr>';
+        }
+    }
+    table_str = table_str + '<hr>';
+    for (var key_s in json_obj.suggestions) {
+        if (json_obj.originals.hasOwnProperty(key_s)) {
+            table_str = table_str + '<tr>' + '<th scope="row">' + key_s + '</th><td>' + json_obj.suggestions[key_s] + '</td></tr>';
+        }
+    }
+    table_str = table_str + '</tbody></table>';
+    console.log(table_str);
+    $('#fillHere').html(table_str);
+}
