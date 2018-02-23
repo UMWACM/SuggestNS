@@ -101,13 +101,13 @@ function GenerateTable(){
     var suggestions = json_obj["suggestions"];
     var table_str = '<table class="table table-striped"><thead><tr><th>URL</th><th>Availability</th></tr></thead><tbody>';
     for (var key_o in originals) {
-        if (json_obj.originals.hasOwnProperty(key_o)) {
+        if (originals.hasOwnProperty(key_o)) {
             table_str = table_str + '<tr>' + '<th scope="row">' + key_o + '</th><td>' + originals[key_o] + '</td></tr>';
         }
     }
     table_str = table_str + '<hr>';
     for (var key_s in suggestions) {
-        if (json_obj.originals.hasOwnProperty(key_s)) {
+        if (suggestions.hasOwnProperty(key_s)) {
             table_str = table_str + '<tr>' + '<th scope="row">' + key_s + '</th><td>' + suggestions[key_s] + '</td></tr>';
         }
     }
