@@ -58,6 +58,9 @@ def get_adjectives(word):
     return adjectives
 
 
+urls = {}
+
+
 def get(customizer, tlds, location=0):
     locations = []
     if location != 0:
@@ -148,5 +151,21 @@ def get(customizer, tlds, location=0):
                 else:
                     suggestions[domain] = True
 
+    global urls
     urls = {'originals': originals, 'suggestions': suggestions}
     return urls
+
+
+def alexa_init(keyword, tld, location=0):
+    global urls
+    urls = get(keyword, list(tld), location)
+
+
+def alexa_suggest(iteration):
+    if iteration == 0:
+        return urls['originals']
+    else:
+        if iteration < len(urls['suggestions']):
+            return {urls['suggestions'].keys()[iteration]: urls['suggestions'].items()[iteration]}
+        else:
+            return 0
