@@ -1,11 +1,5 @@
 greeting: Welcome to SuggestNS, Mikaela. What do you want to call your site?
-keyword: Great! I'll suggest domain names based on {{ keyword }}. Would you like an autos, boats, homes, motorcycles, or yachts domain?
-tld: Great! Would you like to hear suggestions based on {{ url }}?
-suggest_first_notavail: Your original domain {{ url }} is unavailable. Would you like to hear a suggestion?
-suggest_first_avail: Your original domain {{ url }} is available. Would you still like to hear a suggestion?
-
-available: Your original url {{ourl}} is available. Would you like to hear a suggestion?
-unavailable: Your original url {{ourl}} is unavailable. Would you like to hear a suggestion?
-suggest: I suggest {{surl}}. Would you like to hear another suggestion?
-done: I'm all out of suggestions. Goodbye.
+keyword: Great! I'll suggest domain names based on fishing dot boats. Would you like to hear a suggestion?
+suggest1: How about norfolkfishing.boats? Would you like to hear another?
+done: Hope I helped! Goodbye!
 bye: Goodbye.
