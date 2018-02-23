@@ -1,8 +1,8 @@
-greeting: Welcome to SuggestNS, {{firstname}}.
+greeting: Welcome to SuggestNS, {{firstname}}. What do you want to call your site?
 keyword: What do you want to call your site?
 tld: Would you like a .autos, .boats, .homes, .motorcycles, or .yachts domain?
-available: Your original url {{url}} is available. Would you like to hear a suggestion?
-unavailable: Your original url {{url}} is unavailable. Would you like to hear a suggestion?
-suggest: I suggest {{url}}. Would you like to hear another suggestion?
-done: I'm all out of suggestions.
+available: Your original url {{ourl}} is available. Would you like to hear a suggestion?
+unavailable: Your original url {{ourl}} is unavailable. Would you like to hear a suggestion?
+suggest: I suggest {{surl}}. Would you like to hear another suggestion?
+done: I'm all out of suggestions. Goodbye.
 bye: Goodbye.
