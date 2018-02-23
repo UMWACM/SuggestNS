@@ -17,6 +17,9 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/bootstrap.bundle.min.js"></script>
 
+        <!-- Network stuffs -->
+        <script src="axios.min.js"></script>
+
         <!-- Map stuffs -->
         <style>
          #mapPicker {
@@ -98,7 +101,9 @@
                 &nbsp;
                 &nbsp;
                 <button id="generate" onclick="Request()" type="button" class="btn btn-primary">
-                    Generate
+                    <font class="spinner" id="spinner" style="visibility: hidden;">
+                    
+                    </font>Generate
                 </button>
             </nav>
             <br/>
