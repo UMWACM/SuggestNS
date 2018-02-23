@@ -35,17 +35,17 @@ def get_locations(location):
     return locations
 
 
-def get_tlds(tld_list):
+def get_tlds(tld_string):
     tlds = []
-    if tld_list[0].lower() == 'true':
+    if tld_string.split('autos:', 1)[1][:4] == 'true':
         tlds.append('.autos')
-    if tld_list[1].lower() == 'true':
+    if tld_string.split('boats:', 1)[1][:4] == 'true':
         tlds.append('.boats')
-    if tld_list[2].lower() == 'true':
+    if tld_string.split('homes:', 1)[1][:4] == 'true':
         tlds.append('.homes')
-    if tld_list[3].lower() == 'true':
+    if tld_string.split('motorcycles:', 1)[1][:4] == 'true':
         tlds.append('.motorcycles')
-    if tld_list[4].lower() == 'true':
+    if tld_string.split('yachts:', 1)[1][:4] == 'true':
         tlds.append('.yachts')
     return tlds
 
@@ -58,13 +58,12 @@ def get_adjectives(word):
     return adjectives
 
 
-def get(website_info):
+def get(customizer, tlds, location=0):
     locations = []
-    if len(website_info['location']) > 0:
-        location = str(website_info['location']['lat']) + ',' + str(website_info['location']['long'])
+    if location != 0:
         locations = get_locations(location)
-    customizer = website_info['customizer'].lower().strip(' ')
-    tlds = get_tlds(website_info['tlds'])
+    customizer = customizer.lower()
+    tlds = get_tlds(tlds)
     part_of_speech = list(dictionary.meaning(customizer).keys())[0]
     synonyms = dictionary.synonym(customizer)
     adjectives = get_adjectives(customizer)
@@ -83,7 +82,7 @@ def get(website_info):
     else:
         suffixes += locations
 
-    if locations[0] in cultural_data.keys():
+    if len(locations) > 0 and locations[0] in cultural_data.keys():
         infixes += cultural_data[locations[0]]
 
     random.shuffle(prefixes)
@@ -150,4 +149,4 @@ def get(website_info):
                     suggestions[domain] = True
 
     urls = {'originals': originals, 'suggestions': suggestions}
-    return json.dumps(urls)
+    return urls
