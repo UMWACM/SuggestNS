@@ -5,16 +5,22 @@ function getLocation() {
          console.log("no Geo");
      }
  }
- var map;
- var marker;
+
+var map;
+var marker;
+var loc;
 
 
- function showPosition(position){
-    map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
-    marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitude});
-     console.log("Latitude: " + position.coords.latitude +
-                 "<br>Longitude: " + position.coords.longitude);
- }
+function saveLoc(){
+    loc = marker.getPosition();
+    console.log("Latitude: " + loc.lat() +
+                "Longitude: " + loc.lng());
+}
+
+function showPosition(position){
+map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
+marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitude});
+}
 
  function initMap() {
    console.log("Map Loaded");
@@ -52,11 +58,21 @@ $(function() {
 	  })
 })
 
- // function Get(yourUrl){
- //     var Httpreq = new XMLHttpRequest(); // a new request
- //    Httpreq.open("GET",yourUrl,false);
- //     Httpreq.send(null);
- //     return Httpreq.responseText;
- // }
- //var json_obj = JSON.parse(Get(yourUrl));
- //console.log("this is the author name: "+json_obj.author_name);*/
+function Get(yourUrl){
+     var Httpreq = new XMLHttpRequest(); // a new request
+     Httpreq.open("GET",yourUrl,false);
+     Httpreq.send(null);
+     return Httpreq.responseText;
+}
+
+var json_obj;
+
+function Request(){
+    console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}");
+    json_obj = JSON.parse(Get("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+}
+
+function CompileTlds() {
+    return "{autos:" + document.getElementById("inlineCheckbox1").checked + ",boats:" +  document.getElementById("inlineCheckbox2").checked + ",homes:" +  document.getElementById("inlineCheckbox3").checked + ",motorcycles:" +  document.getElementById("inlineCheckbox4").checked + ",yachts:" +  document.getElementById("inlineCheckbox5").checked + "}";
+}
+

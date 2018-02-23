@@ -93,7 +93,7 @@
                 </button>
                 &nbsp;
                 &nbsp;
-                <button id="generate" onclick="submit()" type="button" class="btn btn-primary">
+                <button id="generate" onclick="Request()" type="button" class="btn btn-primary">
                     Generate
                 </button>
             </nav>
@@ -112,12 +112,12 @@
                     <label class="form-check-label" for="inlineCheckbox3">.homes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">.motorcycles</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                    <label class="form-check-label" for="inlineCheckbox4">.motorcycles</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">.yachts</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                    <label class="form-check-label" for="inlineCheckbox5">.yachts</label>
                 </div>
             </nav>
         </div>
@@ -148,7 +148,7 @@
                                     <button type="button" class="btn btn-primary pull-left" onclick="getLocation()">Locate Me</button>
                                 </div>
                                 <div class="col-md-6 text-right">
-    		                            <button type="button" class="btn btn-primary .navbar-right">OK</button>
+    		                            <button onclick="saveLoc()" type="button" class="btn btn-primary .navbar-right" data-dismiss="modal">OK</button>
                                     <button type="button" class="btn btn-secondary .navbar-right" data-dismiss="modal">Close</button>
     	                          </div>
                             </div>
