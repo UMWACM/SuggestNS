@@ -84,10 +84,10 @@ var json_obj;
 
 function Request(){
     if(loc == false) {
-        json_obj = JSON.parse(Get('http://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds()));
+        json_obj = JSON.parse(Get('https://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds()));
     } else {
-        console.log(Get('http://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
-        json_obj = JSON.parse(Get('http://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+        console.log(Get('https://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+        json_obj = JSON.parse(Get('https://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
     }
     GenerateTable();
 }
