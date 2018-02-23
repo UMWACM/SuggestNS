@@ -1,9 +1,11 @@
 #!flask/bin/python
 from flask import Flask, request
 from flask import jsonify
+from flask.ext.cors import CORS, cross_origin
 import suggestions
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/suggestions', methods=['GET'])
 def get_suggestions():
@@ -15,5 +17,7 @@ def get_suggestions():
         latlong = request.args.get('lat') + request.args.get('long')
         print(latlong)
         return jsonify(suggestions.get(customizer, tlds, latlong))
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0' ,port=2023)
+    app.run(host='0.0.0.0', port=2023)
