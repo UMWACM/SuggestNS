@@ -40,6 +40,18 @@ marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitud
 
    console.log(map);
  }
+
+ function locateZip() {
+   var zip = document.getElementById("zipInput").value;
+   var geocoder = new google.maps.Geocoder();
+   geocoder.geocode( { 'address': zip}, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+       map.setCenter(results[0].geometry.location);
+       marker.setPosition(results[0].geometry.location);
+     }
+   });
+ }
+
  function toggleBounce() {
    if (marker.getAnimation() !== null) {
      marker.setAnimation(null);
