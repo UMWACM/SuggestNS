@@ -44,7 +44,7 @@ marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitud
  }
 
  function locateZip() {
-   var zip = document.getElementById("zipInput").value;
+     var zip = document.getElementById("zipInput").value;
    var geocoder = new google.maps.Geocoder();
    geocoder.geocode( { 'address': zip}, function(results, status) {
      if (status == google.maps.GeocoderStatus.OK) {
@@ -115,3 +115,31 @@ function GenerateTable(){
     console.log(table_str);
     $('#fillHere').html(table_str);
 }
+
+// Get the input field
+var input1 = document.getElementById("keywordInput");
+
+// Execute a function when the user releases a key on the keyboard
+input1.addEventListener("keyup", function(event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Trigger the button element with a click
+        document.getElementById("generate").click();
+    }
+});
+
+// Get the input field
+var input2 = document.getElementById("zipInput");
+
+// Execute a function when the user releases a key on the keyboard
+input2.addEventListener("keyup", function(event) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Trigger the button element with a click
+        locateZip();
+    }
+}); 
