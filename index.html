@@ -5,6 +5,7 @@
 
         <!-- Font stuffs -->
         <link rel="stylesheet" href="css/dancing_script.css">
+        <link rel="stylesheet" href="css/sanchez.css">
 
         <!-- Animation stuffs -->
         <link rel="stylesheet" href="css/rotator.css">
@@ -18,56 +19,50 @@
 
         <!-- Map stuffs -->
         <style>
-        #mapPicker {
-           height: 20em;
-           width: 29em;
-           align: center;
+         #mapPicker {
+             height: 20em;
+             width: 29em;
+             align: center;
 
-        }
+         }
         </style>
 
         <!-- Spinner -->
         <style>
-            .spinner {
-                width: 40px;
-                height: 40px;
-                margin: 100px auto;
-                background-color: #333;
+         .spinner {
+             width: 40px;
+             height: 40px;
+             margin: 100px auto;
+             background-color: #333;
 
-                border-radius: 100%;  
-                -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
-                animation: sk-scaleout 1.0s infinite ease-in-out;
-            }
+             border-radius: 100%;  
+             -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+             animation: sk-scaleout 1.0s infinite ease-in-out;
+         }
 
-            @-webkit-keyframes sk-scaleout {
-                0% {
-                    -webkit-transform: scale(0)
-                }
-                    100% {
-                        -webkit-transform: scale(1.0);
-                        opacity: 0;
-                    }
-            }
+         @-webkit-keyframes sk-scaleout {
+             0% {
+                 -webkit-transform: scale(0)
+             }
+             100% {
+                 -webkit-transform: scale(1.0);
+                 opacity: 0;
+             }
+         }
 
-            @keyframes sk-scaleout {
-                0% { 
-                -webkit-transform: scale(0);
-                transform: scale(0);
-                } 100% {
-                -webkit-transform: scale(1.0);
-                transform: scale(1.0);
-                opacity: 0;
-                }
-            }
+         @keyframes sk-scaleout {
+             0% { 
+                 -webkit-transform: scale(0);
+                 transform: scale(0);
+             } 100% {
+                 -webkit-transform: scale(1.0);
+                 transform: scale(1.0);
+                 opacity: 0;
+             }
+         }
         </style>
 
-        <script>
-         $(document).ready(function () {
-             $('.dropdown-toggle').dropdown();
-         });
-        </script>
-
-        <title>SuggestNS</title>
+        <!-- Main Styles -->
 
         <style>
          .center {
@@ -76,6 +71,9 @@
          .svg {
              -webkit-filter: invert(100%);
              filter: invert(100%);
+         }
+         body {
+             font-family: "sanchez";
          }
         </style>
     </head>
@@ -87,18 +85,6 @@
             <p class="lead center">A <font face="Dancing Script" size="6">fancy</font> domain suggestion service.</p>
             <hr>
             <nav class="justify-content-center navbar navbar-light">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profession
-                    </button>
-                    &nbsp;
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Buyer</a>
-                        <a class="dropdown-item" href="#">Seller</a>
-                        <a class="dropdown-item" href="#">Other</a>
-                    </div>
-                </div>
-                &nbsp;
                 <input type="text" id="keywordInput" aria-describedby="keywordIn" placeholder="Enter a Keyword">
                 &nbsp;
                 &nbsp;
@@ -113,26 +99,26 @@
             </nav>
             <br/>
             <nav class="justify-content-center navbar navbar-light">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">.autos</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">.boats</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">.homes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">.motorcycles</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">.yachts</label>
-              </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">.autos</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">.boats</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                    <label class="form-check-label" for="inlineCheckbox3">.homes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">.motorcycles</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">.yachts</label>
+                </div>
             </nav>
         </div>
         <div class="modal fade" id="locModal" tabindex="-1" role="dialog" aria-labelledby="LocationModal" aria-hidden="true">
@@ -145,14 +131,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                      <nav class="justify-content-center navbar navbar-light">
-                        <input type="text" id="zipInput" aria-describedby="zipIn" placeholder="Enter a ZIP" style="width: 87.3%;">
-                        &nbsp;
-                        <button type="button" class="btn btn-secondary">
-                            <image class="svg" width="24" height="24" alt="location" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNDQ1LDM4Ni43bC04NC44LTg1LjljMTMuOC0yNC4xLDIxLTUwLjksMjEtNzcuOWMwLTg3LjYtNzEuMi0xNTguOS0xNTguNi0xNTguOUMxMzUuMiw2NCw2NCwxMzUuMyw2NCwyMjIuOSAgYzAsODcuNiw3MS4yLDE1OC45LDE1OC42LDE1OC45YzI3LjksMCw1NS41LTcuNyw4MC4xLTIyLjRsODQuNCw4NS42YzEuOSwxLjksNC42LDMuMSw3LjMsMy4xYzIuNywwLDUuNC0xLjEsNy4zLTMuMWw0My4zLTQzLjggIEM0NDksMzk3LjEsNDQ5LDM5MC43LDQ0NSwzODYuN3ogTTIyMi42LDEyNS45YzUzLjQsMCw5Ni44LDQzLjUsOTYuOCw5N2MwLDUzLjUtNDMuNCw5Ny05Ni44LDk3Yy01My40LDAtOTYuOC00My41LTk2LjgtOTcgIEMxMjUuOCwxNjkuNCwxNjkuMiwxMjUuOSwyMjIuNiwxMjUuOXoiLz48L3N2Zz4="></image>
-                        </button>
-                      </nav>
-                      <div id="mapPicker" style="position: relative; overflow: hidden;"></div>
+                        <nav class="justify-content-center navbar navbar-light">
+                            <input type="text" id="zipInput" aria-describedby="zipIn" placeholder="Enter a ZIP" style="width: 87.3%;">
+                            &nbsp;
+                            <button type="button" class="btn btn-secondary">
+                                <image class="svg" width="24" height="24" alt="location" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNDQ1LDM4Ni43bC04NC44LTg1LjljMTMuOC0yNC4xLDIxLTUwLjksMjEtNzcuOWMwLTg3LjYtNzEuMi0xNTguOS0xNTguNi0xNTguOUMxMzUuMiw2NCw2NCwxMzUuMyw2NCwyMjIuOSAgYzAsODcuNiw3MS4yLDE1OC45LDE1OC42LDE1OC45YzI3LjksMCw1NS41LTcuNyw4MC4xLTIyLjRsODQuNCw4NS42YzEuOSwxLjksNC42LDMuMSw3LjMsMy4xYzIuNywwLDUuNC0xLjEsNy4zLTMuMWw0My4zLTQzLjggIEM0NDksMzk3LjEsNDQ5LDM5MC43LDQ0NSwzODYuN3ogTTIyMi42LDEyNS45YzUzLjQsMCw5Ni44LDQzLjUsOTYuOCw5N2MwLDUzLjUtNDMuNCw5Ny05Ni44LDk3Yy01My40LDAtOTYuOC00My41LTk2LjgtOTcgIEMxMjUuOCwxNjkuNCwxNjkuMiwxMjUuOSwyMjIuNiwxMjUuOXoiLz48L3N2Zz4="></image>
+                            </button>
+                        </nav>
+                        <div id="mapPicker" style="position: relative; overflow: hidden;"></div>
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJSme4sDrjlBLwyjGT0qq_JJkcK879tAU&callback=initMap" async defer></script>
                     </div>
                     <div class="modal-footer">
