@@ -118,7 +118,7 @@ function GenerateTable(){
     for (var key_s in suggestions) {
         if (suggestions.hasOwnProperty(key_s)) {
             var insert;
-            if (originals[key_s]) {
+            if (suggestions[key_s]) {
                 insert = '&#x2714;';
             } else {
                 insert = '&#x274C;';
