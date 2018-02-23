@@ -1,3 +1,5 @@
+
+
 function getLocation() {
      if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(showPosition);
@@ -82,11 +84,10 @@ var json_obj;
 
 function Request(){
     if(loc == false) {
-        console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds());
-        json_obj = JSON.parse(Get("https://6bc3715d-42d4-4bc1-808f-46cd8374317e.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds()));
+        json_obj = JSON.parse(Get('http://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds()));
     } else {
-        console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}");
-        json_obj = JSON.parse(Get("https://6bc3715d-42d4-4bc1-808f-46cd8374317e.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+        console.log(Get('http://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+        json_obj = JSON.parse(Get('http://100.7.38.84:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
     }
     GenerateTable();
 }
@@ -96,6 +97,7 @@ function CompileTlds() {
 }
 
 function GenerateTable(){
+    console.log(json_obj);
     var table_str = '<table class="table table-striped"><thead><tr><th>URL</th><th>Availability</th></tr></thead><tbody>';
     for (var key_o in json_obj.originals) {
         if (json_obj.originals.hasOwnProperty(key_o)) {
