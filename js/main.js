@@ -17,6 +17,10 @@ function saveLoc(){
                 "Longitude: " + loc.lng());
 }
 
+function emptyLoc(){
+    loc = false;
+}
+
 function showPosition(position){
 map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
 marker.setPosition({lat: position.coords.latitude, lng: position.coords.longitude});
@@ -68,8 +72,13 @@ function Get(yourUrl){
 var json_obj;
 
 function Request(){
-    console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}");
-    json_obj = JSON.parse(Get("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+    if(loc == false) {
+        console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds());
+        json_obj = JSON.parse(Get("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds()));
+    } else {
+        console.log("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}");
+        json_obj = JSON.parse(Get("https://474071e8-3302-4004-99d8-4ea7530bb4db.mock.pstmn.io/?customizer=" + document.getElementById("keywordInput").value + "&tlds=" + CompileTlds() + "&location={lat:" + loc.lat() + ",long:" + loc.lng() + "}"));
+    }
 }
 
 function CompileTlds() {
