@@ -31,22 +31,22 @@ def get_locations(location):
     address_raw = gmaps.reverse_geocode(location)
     for d in address_raw:
         if 'neighborhood' in d['types'] or 'locality' in d['types']:
-            locations.append(d['address_components'][0]['long_name'])
+            locations.append(d['address_components'][0]['long_name'].lower().replace(' ', ''))
     return locations
 
 
 def get_tlds(tld_list):
     tlds = []
-    if tld_list[0]:
+    if tld_list[0].lower() == 'true':
         tlds.append('.autos')
-    if tld_list[1]:
+    if tld_list[1].lower() == 'true':
         tlds.append('.boats')
-    if tld_list[2]:
+    if tld_list[2].lower() == 'true':
         tlds.append('.homes')
-    if tld_list[3]:
-        tlds.append('motorcycles')
-    if tld_list[4]:
-        tlds.append('yachts')
+    if tld_list[3].lower() == 'true':
+        tlds.append('.motorcycles')
+    if tld_list[4].lower() == 'true':
+        tlds.append('.yachts')
     return tlds
 
 
@@ -58,15 +58,14 @@ def get_adjectives(word):
     return adjectives
 
 
-def get(website_json):
-    website_info = json.loads(website_json)
+def get(website_info):
     locations = []
     if len(website_info['location']) > 0:
         location = str(website_info['location']['lat']) + ',' + str(website_info['location']['long'])
         locations = get_locations(location)
     customizer = website_info['customizer'].lower().strip(' ')
     tlds = get_tlds(website_info['tlds'])
-    part_of_speech = dictionary.meaning(customizer).keys()[0]
+    part_of_speech = list(dictionary.meaning(customizer).keys())[0]
     synonyms = dictionary.synonym(customizer)
     adjectives = get_adjectives(customizer)
     prefixes = []
@@ -87,22 +86,22 @@ def get(website_json):
     if locations[0] in cultural_data.keys():
         infixes += cultural_data[locations[0]]
 
-    prefixes = random.shuffle(prefixes)
-    suffixes = random.shuffle(suffixes)
+    random.shuffle(prefixes)
+    random.shuffle(suffixes)
 
     originals = {}
     suggestions = {}
 
     for t in tlds:
-        domain = customizer + t
+        domain = (customizer + t).lower()
         if domain in registered or domain in reserved:
-            suggestions[domain] = False
+            originals[domain] = False
         else:
-            suggestions[domain] = True
+            originals[domain] = True
 
     for i in range(min(10, len(prefixes))):
         for tld in tlds:
-            domain = prefixes[i] + customizer + tld
+            domain = (prefixes[i] + customizer + tld).lower()
             if domain in registered or domain in reserved:
                 suggestions[domain] = False
             else:
@@ -110,7 +109,7 @@ def get(website_json):
 
     for i in range(min(10, len(suffixes))):
         for tld in tlds:
-            domain = customizer + suffixes[i] + tld
+            domain = (customizer + suffixes[i] + tld).lower()
             if domain in registered or domain in reserved:
                 suggestions[domain] = False
             else:
@@ -118,7 +117,7 @@ def get(website_json):
 
     for infix in infixes:
         for tld in tlds:
-            domain = infix + tld
+            domain = (infix + tld).lower()
             if domain in registered or domain in reserved:
                 suggestions[domain] = False
             else:
@@ -126,7 +125,7 @@ def get(website_json):
 
     for i in range(min(10, len(synonyms))):
         for tld in tlds:
-            domain = synonyms[i] + tld
+            domain = (synonyms[i] + tld).lower()
             if domain in registered or domain in reserved:
                 suggestions[domain] = False
             else:
@@ -135,7 +134,7 @@ def get(website_json):
     for i in range(min(3, len(synonyms))):
         for j in range(min(3, len(prefixes))):
             for tld in tlds:
-                domain = prefixes[j] + synonyms[i] + tld
+                domain = (prefixes[j] + synonyms[i] + tld).lower()
                 if domain in registered or domain in reserved:
                     suggestions[domain] = False
                 else:
@@ -144,7 +143,7 @@ def get(website_json):
     for i in range(min(3, len(synonyms))):
         for j in range(min(3, len(suffixes))):
             for tld in tlds:
-                domain = suffixes[j] + synonyms[i] + tld
+                domain = (suffixes[j] + synonyms[i] + tld).lower()
                 if domain in registered or domain in reserved:
                     suggestions[domain] = False
                 else:
