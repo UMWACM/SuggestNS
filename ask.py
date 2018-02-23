@@ -40,7 +40,8 @@ def suggestion():
 
 @ask.intent('DoneIntent')
 def done():
-    return 0
+    done_msg = render_template('done')
+    return statement(done_msg)
 
 
 @ask.intent('AMAZON.StopIntent')
