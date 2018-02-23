@@ -85,6 +85,7 @@ function Get(yourUrl){
 var json_obj;
 
 function Request(){
+    $('#spinner').html('<img src="images/ball-triangle.svg" id="spinner" style="margin-bottom:5px;" alt="" width="15"></img>&nbsp;');
     if(loc == false) {
         json_obj = JSON.parse(Get('https://dosdude1.com:2023/suggestions?customizer=' + document.getElementById("keywordInput").value + '&tlds=' + CompileTlds()));
     } else {
@@ -116,6 +117,7 @@ function GenerateTable(){
     table_str = table_str + '</tbody></table>';
     console.log(table_str);
     $('#fillHere').html(table_str);
+    $('#spinner').html('');
 }
 
 // Get the input field
