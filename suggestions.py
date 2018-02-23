@@ -142,7 +142,7 @@ def get(customizer, tlds, location=0):
     for i in range(min(3, len(synonyms))):
         for j in range(min(3, len(suffixes))):
             for tld in tlds:
-                domain = (suffixes[j] + synonyms[i] + tld).lower()
+                domain = (synonyms[i] + suffixes[j] + tld).lower()
                 if domain in registered or domain in reserved:
                     suggestions[domain] = False
                 else:
