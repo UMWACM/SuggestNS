@@ -99,13 +99,13 @@ function CompileTlds() {
 function GenerateTable(){
     console.log(json_obj);
     var table_str = '<table class="table table-striped"><thead><tr><th>URL</th><th>Availability</th></tr></thead><tbody>';
-    for (var key_o in json_obj.originals) {
+    for (var key_o in json_obj["originals"]) {
         if (json_obj.originals.hasOwnProperty(key_o)) {
             table_str = table_str + '<tr>' + '<th scope="row">' + key_o + '</th><td>' + json_obj.originals[key_o] + '</td></tr>';
         }
     }
     table_str = table_str + '<hr>';
-    for (var key_s in json_obj.suggestions) {
+    for (var key_s in json_obj["suggestions"]) {
         if (json_obj.originals.hasOwnProperty(key_s)) {
             table_str = table_str + '<tr>' + '<th scope="row">' + key_s + '</th><td>' + json_obj.suggestions[key_s] + '</td></tr>';
         }
