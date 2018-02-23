@@ -1,5 +1,7 @@
 
 
+
+
 function getLocation() {
      if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(showPosition);
@@ -74,15 +76,10 @@ $(function() {
 })
 
 function Get(yourUrl){
-    fetch(yourUrl)
-        .then((response) => response.json())
-        .then((responseJson) => {
-            document.getElementById("spinner").style.visibility = visible;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    document.getElementById("spinner").style.visibility = hidden;
+     var Httpreq = new XMLHttpRequest(); // a new request
+     Httpreq.open("GET",yourUrl,false);
+     Httpreq.send(null);
+     return Httpreq.responseText;
 }
 
 var json_obj;
