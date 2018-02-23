@@ -16,4 +16,4 @@ def get_suggestions():
         print(latlong)
         return jsonify(suggestions.get(customizer, tlds, latlong))
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=2023)
