@@ -105,7 +105,7 @@ function GenerateTable(){
             table_str = table_str + '<tr>' + '<th scope="row">' + key_o + '</th><td>' + originals[key_o] + '</td></tr>';
         }
     }
-    table_str = table_str + '<tr><th scope="row"></th><td></td></tr>';
+    table_str = table_str + '<tr><th scope="row"><hr></th><td><hr></td></tr>';
     for (var key_s in suggestions) {
         if (suggestions.hasOwnProperty(key_s)) {
             table_str = table_str + '<tr>' + '<th scope="row">' + key_s + '</th><td>' + suggestions[key_s] + '</td></tr>';
